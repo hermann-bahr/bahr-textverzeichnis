@@ -6,17 +6,26 @@
     <xsl:mode on-no-match="shallow-copy"/>
     <xsl:output indent="yes" method="xml" encoding="utf-8" omit-xml-declaration="false"/>
    
-   <xsl:template match="tei:persName[mam:altname]">
-       <xsl:element name="persName" namespace="http://www.tei-c.org/ns/1.0">
-           <xsl:copy-of select="@*|tei:*"/>
-       </xsl:element>
-       <xsl:element name="persName" namespace="http://www.tei-c.org/ns/1.0">
-           <xsl:attribute name="type">
-               <xsl:text>namensvariante</xsl:text>
-           </xsl:attribute>
-           <xsl:copy-of select="mam:*"/>
-       </xsl:element>
-   </xsl:template>
-   
+    <xsl:template match="mam:irregularDeathDate">
+        <xsl:element name="death" namespace="http://www.tei-c.org/ns/1.0">
+            <xsl:element name="date" namespace="http://www.tei-c.org/ns/1.0">
+                <xsl:attribute name="when-custom">
+                    <xsl:value-of select="."/>
+                </xsl:attribute>
+                <xsl:value-of select="."/>
+            </xsl:element>
+        </xsl:element>
+    </xsl:template>
+    
+    <xsl:template match="mam:irregularBirthDate">
+        <xsl:element name="birth" namespace="http://www.tei-c.org/ns/1.0">
+            <xsl:element name="date" namespace="http://www.tei-c.org/ns/1.0">
+                <xsl:attribute name="when-custom">
+                    <xsl:value-of select="."/>
+                </xsl:attribute>
+                <xsl:value-of select="."/>
+            </xsl:element>
+        </xsl:element>
+    </xsl:template>
     
 </xsl:stylesheet>
