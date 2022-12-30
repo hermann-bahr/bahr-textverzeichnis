@@ -123,6 +123,7 @@
         </options>
     </meta>
     <projectTree name="bahr.xpr">
+        <folder path="../bahr-index/"/>
         <folder path="."/>
     </projectTree>
 </project>
